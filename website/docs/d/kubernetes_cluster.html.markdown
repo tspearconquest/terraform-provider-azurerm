@@ -78,6 +78,8 @@ The following attributes are exported:
 
 * `location` - The Azure Region in which the managed Kubernetes Cluster exists.
 
+* `microsoft_defender` - A `microsoft_defender` block as defined below.
+
 * `oms_agent` - An `oms_agent` block as documented below.
 
 * `open_service_mesh_enabled` - Is Open Service Mesh enabled for this managed Kubernetes Cluster?
@@ -214,6 +216,12 @@ A `linux_profile` block exports the following:
 * `admin_username` - The username associated with the administrator account of the managed Kubernetes Cluster.
 
 * `ssh_key` - An `ssh_key` block as defined below.
+
+---
+
+A `microsoft_defender` block exports the following:
+
+* `log_analytics_workspace_id` - The ID of the Log Analytics Workspace which Microsoft Defender uses to send audit logs to.
 
 ---
 

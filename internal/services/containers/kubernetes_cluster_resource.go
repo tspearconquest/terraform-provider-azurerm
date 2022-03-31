@@ -3,7 +3,6 @@ package containers
 import (
 	"context"
 	"fmt"
-	logAnalyticsValidate "github.com/hashicorp/terraform-provider-azurerm/internal/services/loganalytics/validate"
 	"log"
 	"strconv"
 	"strings"
@@ -23,6 +22,7 @@ import (
 	"github.com/hashicorp/terraform-provider-azurerm/internal/services/containers/migration"
 	"github.com/hashicorp/terraform-provider-azurerm/internal/services/containers/parse"
 	containerValidate "github.com/hashicorp/terraform-provider-azurerm/internal/services/containers/validate"
+	logAnalyticsValidate "github.com/hashicorp/terraform-provider-azurerm/internal/services/loganalytics/validate"
 	msiparse "github.com/hashicorp/terraform-provider-azurerm/internal/services/msi/parse"
 	msivalidate "github.com/hashicorp/terraform-provider-azurerm/internal/services/msi/validate"
 	privateDnsValidate "github.com/hashicorp/terraform-provider-azurerm/internal/services/privatedns/validate"
@@ -1087,7 +1087,7 @@ func resourceKubernetesClusterCreate(d *pluginsdk.ResourceData, meta interface{}
 			PublicNetworkAccess:    publicNetworkAccess,
 			DisableLocalAccounts:   utils.Bool(d.Get("local_account_disabled").(bool)),
 			HTTPProxyConfig:        httpProxyConfig,
-			SecurityProfile: 		microsoftDefender,
+			SecurityProfile:        microsoftDefender,
 		},
 		Tags: tags.Expand(t),
 	}
@@ -2847,7 +2847,7 @@ func expandKubernetesClusterMicrosoftDefender(input []interface{}) *containerser
 }
 
 func flattenKubernetesClusterMicrosoftDefender(input *containerservice.ManagedClusterSecurityProfile) []interface{} {
-	if input == nil || input.AzureDefender == nil || (input.AzureDefender.Enabled != nil && *input.AzureDefender.Enabled == false) {
+	if input == nil || input.AzureDefender == nil || (input.AzureDefender.Enabled != nil && !*input.AzureDefender.Enabled) {
 		return []interface{}{}
 	}
 

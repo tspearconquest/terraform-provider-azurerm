@@ -568,9 +568,9 @@ func TestAccKubernetesCluster_osSku(t *testing.T) {
 	data.ResourceTest(t, r, []acceptance.TestStep{
 		{
 			Config: r.osSku(data),
-			//Check: acceptance.ComposeTestCheckFunc(
-			//	check.That(data.ResourceName).ExistsInAzure(r),
-			//),
+			Check: acceptance.ComposeTestCheckFunc(
+				check.That(data.ResourceName).ExistsInAzure(r),
+			),
 		},
 		data.ImportStep(),
 	})
@@ -1856,7 +1856,7 @@ resource "azurerm_resource_group" "test" {
 }
 
 resource "azurerm_kubernetes_cluster" "test" {
-  provider = azurerm-alt
+  provider            = azurerm-alt
   name                = "acctestaks%d"
   location            = azurerm_resource_group.test.location
   resource_group_name = azurerm_resource_group.test.name
@@ -1913,7 +1913,7 @@ resource "azurerm_kubernetes_cluster" "test" {
   }
 
   microsoft_defender {
-	log_analytics_workspace_id = azurerm_log_analytics_workspace.test.id
+    log_analytics_workspace_id = azurerm_log_analytics_workspace.test.id
   }
 }
 
@@ -1954,7 +1954,7 @@ resource "azurerm_kubernetes_cluster" "test" {
 
   identity {
     type = "SystemAssigned"
-  }  
+  }
 }
 
 `, data.RandomInteger, data.Locations.Primary, data.RandomInteger, data.RandomInteger, data.RandomInteger)
