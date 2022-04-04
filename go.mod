@@ -16,16 +16,17 @@ require (
 	github.com/fatih/color v1.12.0 // indirect
 	github.com/gofrs/uuid v4.0.0+incompatible
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
-	github.com/google/go-cmp v0.5.6
+	github.com/google/go-cmp v0.5.7
 	github.com/google/uuid v1.1.2
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-azure-helpers v0.28.0
 	github.com/hashicorp/go-getter v1.5.4
 	github.com/hashicorp/go-multierror v1.1.1
-	github.com/hashicorp/go-plugin v1.4.2 // indirect
 	github.com/hashicorp/go-uuid v1.0.2
 	github.com/hashicorp/go-version v1.3.0
 	github.com/hashicorp/hcl/v2 v2.10.0 // indirect
+	github.com/hashicorp/terraform-plugin-framework v0.6.1 // indirect
+	github.com/hashicorp/terraform-plugin-go v0.8.0 // indirect
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.10.1
 	github.com/hashicorp/yamux v0.0.0-20210316155119-a95892c5f864 // indirect
 	github.com/klauspost/compress v1.13.1 // indirect
@@ -44,7 +45,6 @@ require (
 	golang.org/x/oauth2 v0.0.0-20210628180205-a41e5a781914 // indirect
 	golang.org/x/sys v0.0.0-20210630005230-0f9fa26af87c // indirect
 	google.golang.org/genproto v0.0.0-20210629200056-84d6f6074151 // indirect
-	google.golang.org/grpc v1.39.0 // indirect
 	gopkg.in/yaml.v2 v2.3.0
 )
 
